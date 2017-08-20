@@ -10,16 +10,16 @@
                 <div class="alert alert-warning">
                     <%= message %>
                 </div>
-            <% } %>
-            <form class="form-signin" action="/login" method="POST">
-                <h3 class="form-signin-heading">Welcome Signin</h3>
+            <% } %>            
+            <form class="form-signin" action="/signup" method="POST">
+                <h3 class="form-signin-heading">Welcome Signup</h3>
+                <label for="inputName" class="sr-only">Name</label>
+                <input type="text" id="name" name="name" class="form-control">
                 <label for="inputEmail" class="sr-only">Email address</label>
                 <input type="email" id="email" name="email" class="form-control">
                 <label for="inputPass" class="sr-only">Password</label>
                 <input type="password" id="password" name="password" class="form-control">
-                <button class="btn btn-lg btn-primary btn-block" type="submit">Connect</button>
-                <br/>
-                <p>Don't have an account ?<a href="/signup">Signup</a></p>
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
             </form>
         </div>
     </body>

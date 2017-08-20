@@ -29,6 +29,7 @@ module.exports = function(passport) {
                     return done(err)
                 }
                 if (! user) {
+                    console.log('no user found')
                     return done(null, false, req.flash('loginMessage', 'no user found'))
                 }
                 if (! user.validPassword(password)) {
@@ -40,18 +41,18 @@ module.exports = function(passport) {
         })
     }))
 
-    passport.use('local-singup', new LocalStrategy({
+    passport.use('local-signup', new LocalStrategy({
         usernameField: 'email',
         passwordField: 'password',
         passReqToCallback: true
     }, function(req, email, password, done) {
         if (email) {
-            email = email.toLowerCase
+            email = email.toLowerCase()
         }
         process.nextTick(function() {
             if (! req.user) {
                 User.findOne({'local.email': email},
-                function(){
+                function(err, user){
                     if (err) {
                         return done(err)
                     }
